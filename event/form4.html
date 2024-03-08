@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div * {
+        padding: 10px;
+        margin: 10px;
+      }
+      [readonly] {
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>숫자 맞추기 게임</h3>
+    <p>
+      이 게임은 컴퓨터가 생성한 숫자를 맞추는 게임입니다. <br />
+      숫자는 1 ~ 100 사이에 있습니다.
+    </p>
+    <div>
+      <label>
+        숫자 <input type="text" name="num" id="num" size="5" />
+        <button type="button">확인</button>
+      </label>
+    </div>
+    <div>
+      <label> 추측횟수 <input type="text" name="count" id="count" size="5" readonly /> </label>
+    </div>
+    <div>
+      <label> 힌트 <input type="text" name="hint" id="hint" readonly /> </label>
+    </div>
+    <script>
+      // 1 ~ 100 사이의 임의의 수 생성
+      const random = Math.floor(Math.random() * 100) + 1;
+      // 추측횟수 변수 선언
+      let count = 0;
+
+      // 임의의 수 알아맞추는 게임
+      // 버튼클릭
+      // 추측횟수 : 사용자가 숫자를 몇 번 추측 했는지 증가
+      // 힌트 : UP or DOWN of 정답입니다
+      // 정답이면 버튼을 못 누르게 하기
+      document.querySelector("button").addEventListener("click", (e) => {
+        const num = parseInt(document.getElementById("num").value);
+        let hint = "";
+
+        if (num > random) {
+          count++;
+          hint = "DOWN";
+        } else if (num < random) {
+          count++;
+          hint = "UP";
+        } else if (num == random) {
+          hint = "정답입니다.";
+          e.target.disabled = true;
+        }
+        document.getElementById("hint").value = hint;
+        document.getElementById("count").value = count;
+      });
+    </script>
+  </body>
+</html>
