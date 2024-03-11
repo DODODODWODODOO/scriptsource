@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메뉴 룰렛</title>
+    <style>
+      #roulette {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: #ffc107;
+        position: relative;
+        overflow: hidden;
+      }
+      #spinner {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 3s ease;
+      }
+      #spinner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #spinButton {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="roulette">
+      <div id="spinner">
+        <img src="https://via.placeholder.com/300" alt="메뉴" />
+      </div>
+    </div>
+    <button id="spinButton">돌리기</button>
+
+    <script>
+      // 메뉴 배열
+      const menuItems = [];
+
+      // 룰렛을 돌리는 함수
+      function spinRoulette() {
+        const spinner = document.getElementById("spinner");
+        const randomMenu = menuItems[Math.floor(Math.random() * menuItems.length)];
+        const deg = Math.floor(Math.random() * 360) + 360 * 5; // 5바퀴 돌리기
+        spinner.style.transform = `rotate(${deg}deg)`;
+        setTimeout(() => {
+          alert(`오늘의 메뉴: ${randomMenu}`);
+        }, 3000); // 3초 후에 선택된 메뉴 알림
+      }
+
+      // 돌리기 버튼에 클릭 이벤트 추가
+      const spinButton = document.getElementById("spinButton");
+      spinButton.addEventListener("click", spinRoulette);
+    </script>
+  </body>
+</html>
