@@ -1,3 +1,4 @@
+ajax5.html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* 전체 요소 : margin padding 0 */
+      /* 전체요소 : margin,padding 0  */
       * {
         margin: 0;
         padding: 0;
       }
-      /* container : flex , 높이 50 , 배경색 :lightblue */
+      /* container : flex, 높이 50, 배경색 : lightblue */
       .container {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        background-color: lightblue;
         height: 50px;
-        background: lightblue;
       }
-      /* li : 불릿 기호 제거 */
+      /* li : 블릿 기호 제거 */
       .container li {
         margin: 0 10px;
         list-style: none;
@@ -39,7 +41,7 @@
     <script>
       // 메뉴2 클릭하면 서버로부터 데이터 가져오기
       // ok : 200
-      // Not Found : 404, 403, 401
+      // not found : 404, 403, 401
       // 서버 오류 : 500
       document.querySelector(".container li:nth-child(2)").addEventListener("click", () => {
         fetch("https://DODODODWODODOO.github.io/version2.json")
@@ -65,7 +67,7 @@
             let result = `<ul>`;
             data.forEach((item) => {
               result += `<li>version : ${item.version}</li>`;
-              result += `<li>codename : ${irem.codename}</li>`;
+              result += `<li>codename : ${item.codename} </li>`;
             });
             result += `</ul>`;
 

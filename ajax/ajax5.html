@@ -52,10 +52,11 @@
             result += `<td>${item.email}</td>`;
             result += `<td>${item.gender}</td>`;
             result += `<td>${item.ip_address}</td>`;
-            result += `<tr>`;
+            result += `</tr>`;
           });
           document.querySelector("tbody").innerHTML = result;
-        });
+        })
+        .catch(() => console.log("오류"));
     </script>
   </body>
 </html>
