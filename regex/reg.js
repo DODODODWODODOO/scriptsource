@@ -12,7 +12,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   const confirmPassword = document.querySelector("#confirm-password");
 
   const regId = /(?=^[A-Za-z])(?=.+\d)[A-Za-z\d]{6,12}$/;
-  const regPwd = /(?=^[A-Za-z])(?=.+\d)(?=.+[!@$%])[A-Za-z\d!@$%]{6,12}$/;
+  const regPwd = /(?=^[A-Za-z])(?=.+\d)(?=.+[!@$%])[A-Za-z\d!@$%]{8,15}$/;
 
   // true 자료 : 0 을 제외한 숫자, '문자', [], {}
   // false 자료 : 0, '', null, undefined, NaN
